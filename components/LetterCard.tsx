@@ -25,7 +25,7 @@ export const LetterCard: FC<LetterCardProps> = ({ letter }) => {
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   return (
-    <div>
+    <>
       <button
         className={styles.card}
         onClick={clickHandler}
@@ -33,6 +33,6 @@ export const LetterCard: FC<LetterCardProps> = ({ letter }) => {
       >
         <h2>{show && letter}</h2>
       </button>
-    </div>
+    </>
   );
 };
