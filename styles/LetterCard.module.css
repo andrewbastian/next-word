@@ -32,16 +32,33 @@
 .card h2 {
   margin: 0 0 1rem 0;
   font-size: 4.5rem;
+  
 }
 
 @media (max-width: 600px) {
   .gridDiv {
     width: 100%;
+    outline: 2px dotted blue;
   }
   .grid {
-    width: 100%;
+    width: 21%;
+    outline: 2px dotted green;
   }
   .card {
-    width: 60%;
+    width: 5rem;
+    align-items: center;
+    padding-left: 0.25rem;
+    justify-content: center;
+    outline: 2px dotted hotpink;
+  }
+  .card h2 {
+      outline: 2px solid orange;
+      text-align: center;
+      width: 4.5rem;
+      position: relative;
+      
+      
+      
+      
   }
 }
