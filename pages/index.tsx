@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { getDoc, doc, DocumentData } from "firebase/firestore";
 import { Synonyms } from "../components/Synonyms";
@@ -14,17 +13,21 @@ const Home: NextPage = () => {
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   const date = new Date();
-  let day = date.getDate();
-  let month = date.getMonth();
-  let year = date.getFullYear();
 
+  const nyDate = new Date(date).toLocaleDateString("en-US", {
+    timeZone: "America/New_York",
+    month: "2-digit",
+    day: "2-digit",
+    year: "numeric",
+  });
+
+  const dateRef = nyDate.replaceAll("/", "-");
   const [answers, setAnswers] = useState<DocumentData | undefined>();
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   useEffect(() => {
-    const date = new Date();
-    const dateRef = `${date.getMonth()}-${date.getDay()}-${date.getFullYear()}`;
+    console.log("dateRef:", dateRef);
 
     async function getDocq() {
       const db = firesbaseInit();
@@ -39,7 +42,7 @@ const Home: NextPage = () => {
       return val;
     });
     daDoc.then((v) => setAnswers(v?.data()));
-  }, []);
+  }, [dateRef]);
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -59,7 +62,7 @@ const Home: NextPage = () => {
 
           <p className={styles.description}>
             {" "}
-            <code className={styles.code}>{`${day}-${month}-${year}`}</code>
+            <code className={styles.code}>{`${dateRef}`}</code>
           </p>
           {answers && (
             <>
