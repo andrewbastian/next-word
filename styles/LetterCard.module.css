@@ -37,21 +37,17 @@
 @media (max-width: 600px) {
   .gridDiv {
     width: 100%;
-    outline: 2px dotted blue;
   }
   .grid {
     width: 21%;
-    outline: 2px dotted green;
   }
   .card {
     width: 5rem;
     align-items: center;
     padding-left: 0.25rem;
     justify-content: center;
-    outline: 2px dotted hotpink;
   }
   .card h2 {
-    outline: 2px solid orange;
     text-align: center;
     width: 4.5rem;
     position: relative;
